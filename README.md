@@ -1,66 +1,58 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1><p align="center">Laravel 8, Redis, Laravel Passport, Swagger </p></h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+## Proje Clone işlemi ve Gerekli paketlerin kurulumu
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Projeyi reposunu git ile kendi localinize klonladıktan sonra;
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- composer install ile paketler yüklenmeli.
+- Authentication işlemleri için Laravel passport paketi kurulmalı
+- https://hackthedeveloper.com/how-to-install-redis-on-windows-10/ adresinden redis kurulmali
+- https://laravel.com/docs/8.x/redis adresinden Laravel icin redis kurulumlari yapilmali
+- Swagger ile API dökümantasyonu kurulumu için https://github.com/DarkaOnLine/L5-Swagger adresinden yararlanabilirsiniz.
+- Swagger dökümantasyonunu aktif etmek için php artisan l5-swagger:generate komutu calıstırılmalı
+- Swagger dökümantasyonuna ulaşmak için php artisan serve yazıldıktan sonra http://localhost:8000/api/documentation adresinden ulasilabilir.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Projede ki API'lerin testi için
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Register ile post istegi gönderip kayıt işlemi tamamlanmalı.
+- Kayıt olunan Mail ve şifreyle giriş yapılmalı. Dönen response verisindeki token kopyalanmalı ve Authorize'a eklenmeli.
+- Auth işlemi tamamlandıktan sonra diğer istekleri kullanabilirsiniz.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Projenin Endpointleri
 
-## Laravel Sponsors
+    Projede yazılan endpointler Repository Pattern kullanılarak yazılmıştır.
+    Projede Event Listener kullanılmıştır.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- User Register API (POST): http://localhost:8000/api/register
+- User Login API (POST): http://localhost:8000/api/login
+- User Logout API (GET): http://localhost:8000/api/logout
+- Tüm Verilein API'si (GET): http://localhost:8000/api/data
+- Güncelleme için API (PUT): http://localhost:8000/api/personel-update/{id}
+- Silme için API (DELETE): http://localhost:8000/api/personel-delete/{id}
+- Rehbere kişi Ekleme için API (POST): http://localhost:8000/api/add-person
+- Alfabetik Sıralama için API (GET): http://localhost:8000/api/person-filter
+- Kişi arama için API (POST): http://localhost:8000/api/person-search
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Pojenin Ekran Çıktıları
+<details>
+<summary>Swagger</summary>
+<img src="https://user-images.githubusercontent.com/56219956/145681715-4fb52279-2e50-468b-ad2d-3aee09522886.png" width="500">
+</details>
+<details>
+<summary>Log</summary>
+<img src="https://user-images.githubusercontent.com/56219956/145681662-70a56507-48bc-49ed-974e-b8e15a173008.png" width="500">
+</details>
+<details>
+<summary>Mail</summary>
+<img src="https://user-images.githubusercontent.com/56219956/145681659-0cda087c-de9a-431b-9835-30fed458938a.png" width="500">
+</details>
+<details>
+<summary>Redis-server</summary>
+<img src="https://user-images.githubusercontent.com/56219956/145681676-610c49c2-7a59-46d5-9dfb-6b6b04b45b99.png" width="500">
+</details>
+<details>
+<summary>Redis-client</summary>
+<img src="https://user-images.githubusercontent.com/56219956/145681679-a9a6b1f2-2a4e-4879-b286-a593f960f45f.png" width="500">
+</details>
