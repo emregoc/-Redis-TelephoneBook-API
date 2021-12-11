@@ -7,6 +7,7 @@ Projeyi reposunu git ile kendi localinize klonladıktan sonra;
 
 - composer install ile paketler yüklenmeli.
 - Authentication işlemleri için Laravel passport paketi kurulmalı
+- php artisan migrate ile tablolar veritabanina eklendikten sonra php artisan db:seed komutu ile TelephoneBook modeline uygun 100.000 kayıt eklenmeli
 - https://hackthedeveloper.com/how-to-install-redis-on-windows-10/ adresinden redis kurulmali
 - https://laravel.com/docs/8.x/redis adresinden Laravel icin redis kurulumlari yapilmali
 - Swagger ile API dökümantasyonu kurulumu için https://github.com/DarkaOnLine/L5-Swagger adresinden yararlanabilirsiniz.
