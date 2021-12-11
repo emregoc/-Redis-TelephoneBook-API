@@ -17,6 +17,7 @@ Projeyi reposunu git ile kendi localinize klonladıktan sonra;
 
 ## Projede ki API'lerin testi için
 
+- Redis kurulumları gerçekleştikten sonra cmd ekranın redis-server çalıştırılmalı, redis-cli ile olusturulan keyleri gorebilirsiniz
 - Register ile post istegi gönderip kayıt işlemi tamamlanmalı.
 - Kayıt olunan Mail ve şifreyle giriş yapılmalı. Dönen response verisindeki token kopyalanmalı ve Authorize'a eklenmeli.
 - Auth işlemi tamamlandıktan sonra diğer istekleri kullanabilirsiniz.
